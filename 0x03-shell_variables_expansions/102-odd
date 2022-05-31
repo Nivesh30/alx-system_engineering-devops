@@ -1,3 +1,2 @@
 #!/bin/bash
-#!/bin/bash
-paste - - | cut -f1
+cat -n | cut -c6- | grep -vP "[02465]\t" | cut -f2
