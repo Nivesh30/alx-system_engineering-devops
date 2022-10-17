@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
-# This script is used for FizzBuzz game
-n=1
-
-while [ $n -le 100 ]
-do
-    if [ $(( n % 3 )) -eq 0 -a $(( n % 5 )) -eq 0 ]
-    then
-        echo "FizzBuzz"
-    elif [ $(( n % 3 )) -eq 0 ]
-    then
-        echo "Fizz"
-    elif [ $(( n % 5 )) -eq 0 ]
-    then
-        echo "Buzz"
-    else
-        echo $n
-    fi
-    n=$(( n + 1 ))
+# displays numbers from 1 to 100
+counter=0
+while [ $counter -lt 100 ]; do
+	(( counter+=1 ))
+	if (( counter % 3 == 0 )) && (( counter % 5 == 0 )); then
+		echo "FizzBuzz"
+	continue
+	elif (( counter % 3 == 0 )); then
+		echo "Fizz"
+	continue
+	elif (( counter % 5 == 0 )); then
+		echo "Buzz"
+	continue
+	fi
+	echo "$counter"
 done
