@@ -1,18 +1,10 @@
 #!/usr/bin/env bash
-# Configure your domain zone so that the subdomain 
-# www points to your load-balancer IP (lb-01)
-param () {
-    REC=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
-    echo "$2 $REC" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
-}
+# digs domain given
 
-if [ "$#" == 1 ]
-then
-  param "$1" "www"
-  param "$1" "lb-01"
-  param "$1" "web-01"
-  param "$1" "web-02"
-elif [ "$#" == 2 ]
-then
-  param "$1" "$2"
-fi
+domain=$1
+
+domain_full=`dig "$domain" | grep -A1 'ANSWER SECTION:' | tail +2 | awk 'BEGIN { FS="[\t]" } ; { print $1}'`
+sub=`echo "$domain_full" | cut -d "." -f1`
+rec=`dig "$domain" | grep -A1 'ANSWER SECTION:' | tail +2 | awk 'BEGIN { FS="[\t]" } ; { print $4}'`
+ip=`dig "$domain" | grep -A1 'ANSWER SECTION:' | tail +2 | awk 'BEGIN { FS="[\t]" } ; { print $5}'`
+echo "The subdomain $sub is a $rec record and points to $ip"
