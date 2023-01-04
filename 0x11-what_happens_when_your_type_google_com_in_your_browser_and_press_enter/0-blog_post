@@ -10,4 +10,4 @@ Application server: If the web page contains dynamic content (e.g. a search form
 Database: If the web page needs to retrieve data from a database (e.g. search results), the application server will send a request to a database server to retrieve the necessary data. The database server will then send the data back to the application server, which will incorporate it into the web page before sending it back to the browser.
 This is a simplified version of what happens when you type a URL into your browser and press enter, but it covers the main steps involved in accessing a website.
 
-Link to Post: https://www.linkedin.com/posts/nivesh-r-6a247a149_when-you-type-httpswwwgooglecom-into-activity-7016487463208521728-88f9/?utm_source=share&utm_medium=member_android
+Link to Post: https://www.linkedin.com/posts/nivesh-r-6a247a149_when-you-type-httpswwwgooglecom-into-activity-7016490388295159808-L5Sq?utm_source=share&utm_medium=member_android
