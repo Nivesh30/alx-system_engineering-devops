@@ -1,0 +1,13 @@
+When you type "https://www.google.com" into your browser and press enter, a series of events is triggered that allows you to access the desired website. Here's what happens:
+
+DNS request: The first step in accessing any website is to convert the domain name (e.g. "google.com") into an IP address. This is done through a process called DNS (Domain Name System) resolution. When you enter the URL into your browser, it sends a request to a DNS server to resolve the domain name into an IP address.
+TCP/IP: Once the IP address has been determined, your computer sends a request to the server using the TCP/IP (Transmission Control Protocol/Internet Protocol) suite of protocols. TCP/IP is a set of rules that govern how data is transmitted over the internet.
+Firewall: The request from your computer must pass through a firewall, which is a security system that controls incoming and outgoing network traffic based on predetermined security rules. The firewall checks the request to see if it is allowed to pass through, based on the rules set by the network administrator.
+HTTPS/SSL: Once the request has passed through the firewall, it is encrypted using HTTPS (Hypertext Transfer Protocol Secure) and SSL (Secure Sockets Layer). This ensures that the data being transmitted is secure and cannot be intercepted by anyone else.
+Load-balancer: Large websites like Google often have multiple servers to handle incoming traffic. A load-balancer is a device that distributes incoming requests among these servers in order to balance the workload and ensure that each server is operating at optimal capacity.
+Web server: The request is then passed to a web server, which is a computer that stores and delivers the web pages for the website. The web server sends back the requested web page to the browser.
+Application server: If the web page contains dynamic content (e.g. a search form), the request may also be passed to an application server. This is a server that processes the request and generates the dynamic content for the web page.
+Database: If the web page needs to retrieve data from a database (e.g. search results), the application server will send a request to a database server to retrieve the necessary data. The database server will then send the data back to the application server, which will incorporate it into the web page before sending it back to the browser.
+This is a simplified version of what happens when you type a URL into your browser and press enter, but it covers the main steps involved in accessing a website.
+
+Link to Post: https://www.linkedin.com/posts/nivesh-r-6a247a149_when-you-type-httpswwwgooglecom-into-activity-7016487463208521728-88f9/?utm_source=share&utm_medium=member_android
