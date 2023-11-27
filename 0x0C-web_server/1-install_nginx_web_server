@@ -1,18 +1,17 @@
-#!/usr/bin/env bash
-# Script to install and configure Nginx on an Ubuntu server
+#!/bin/bash
 
 # Update package lists and install Nginx
 apt-get update
 apt-get install -y nginx
 
-# Ensure Nginx is listening on port 80
-sed -i 's/.*listen\(.*\)80;/    listen 80;/g' /etc/nginx/sites-available/default
+# Start Nginx if not already started
+service nginx start
 
-# Set the server name to 50102-web-01
-sed -i '/server_name/ c\    server_name 50102-web-01;' /etc/nginx/sites-available/default
+# Set Nginx to listen on port 80
+sed -i 's/listen\s*80;/listen 80;/g' /etc/nginx/sites-available/default
 
-# Add "Hello World!" to the root page served by Nginx
+# Create Hello World index page
 echo "Hello World!" > /var/www/html/index.html
 
-# Restart Nginx (without using systemctl)
+# Restart Nginx without using systemctl
 /usr/sbin/nginx -s reload
