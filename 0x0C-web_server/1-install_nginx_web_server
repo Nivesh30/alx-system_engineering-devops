@@ -8,6 +8,9 @@ apt-get install -y nginx
 # Ensure Nginx is listening on port 80
 sed -i 's/.*listen\(.*\)80;/    listen 80;/g' /etc/nginx/sites-available/default
 
+# Set the server name to 50102-web-01
+sed -i '/server_name/ c\    server_name 50102-web-01;' /etc/nginx/sites-available/default
+
 # Add "Hello World!" to the root page served by Nginx
 echo "Hello World!" > /var/www/html/index.html
 
