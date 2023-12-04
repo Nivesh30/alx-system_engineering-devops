@@ -1,9 +1,17 @@
-#!/usr/bin/env bash
-# configure web-02 to be identical to web-01
-sudo apt-get -y update
-sudo apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.html
-sudo sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-sudo sed -i '/listen 80 default_server;/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
-service nginx start
+#!/bin/bash
+
+# Update package lists and install Nginx
+sudo apt-get update
+sudo apt-get install nginx -y
+
+# Get the current server's hostname
+current_hostname=$(hostname)
+
+# Add custom header configuration to Nginx
+sudo bash -c 'cat <<EOF > /etc/nginx/conf.d/custom_headers.conf
+server_tokens off;
+add_header X-Served-By $current_hostname;
+EOF'
+
+# Restart Nginx to apply changes
+sudo systemctl restart nginx
